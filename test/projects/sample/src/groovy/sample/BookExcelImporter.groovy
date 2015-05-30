@@ -2,7 +2,7 @@ package sample
 
 import static org.grails.plugins.excelimport.ExpectedPropertyType.*
 import org.grails.plugins.excelimport.*
-import org.grails.plugins.excelimport.ExcelImportService
+import grails.plugins.excelimport.ExcelImportService
 import sample.*
 
 class BookExcelImporter extends AbstractExcelImporter  {
