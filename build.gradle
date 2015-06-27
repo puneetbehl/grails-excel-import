@@ -16,7 +16,7 @@ plugins {
     id "com.jfrog.bintray" version "1.1"
 }
 
-version "0.1-SNAPSHOT"
+version "2.0.0-SNAPSHOT"
 group "org.grails.plugins"
 
 apply plugin: 'maven-publish'
@@ -59,14 +59,12 @@ dependencies {
 
     provided "org.grails:grails-web-boot"
     provided "org.grails:grails-dependencies"
-    provided 'javax.servlet:javax.servlet-api:3.1.0'
+    provided "javax.servlet:javax.servlet-api:3.1.0"
 
     compile "org.apache.poi:poi:3.8"
     //xlxs file support
-    compile("org.apache.poi:poi-ooxml:3.8") {
-        exclude module: "xmlbeans"
-    }
-    compile 'joda-time:joda-time:2.7'
+    compile "org.apache.poi:poi-ooxml:3.8"
+    compile "org.grails.plugins:joda-time:2.0.0-SNAPSHOT"
 
     testCompile "org.grails:grails-plugin-testing"
 
