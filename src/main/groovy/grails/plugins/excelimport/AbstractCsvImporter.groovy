@@ -14,7 +14,7 @@ abstract class AbstractCsvImporter extends imexporter.AbstractImexporter {
 	@Override
 	protected def read(InputStream inp) {
 		tokensList = []
-		inp.eachCsvLine {tokens ->
+		inp.splitEachLine(',') {tokens->
 			tokensList << tokens
 		}
 	}
@@ -32,7 +32,7 @@ abstract class AbstractCsvImporter extends imexporter.AbstractImexporter {
 	def getData(Map columnMap, int firstRow) {
 		tokensList[[firstRow, tokensList.size()].min()..<tokensList.size()].collect {tokens ->
 			columnMap.inject([:]) {acc, ent ->
-				acc[ent.value] = (ent.key < tokens.length) ? tokens[ent.key] : null
+				acc[ent.value] = (ent.key < tokens.size()) ? tokens[ent.key] : null
 				return acc
 			}
 		}
